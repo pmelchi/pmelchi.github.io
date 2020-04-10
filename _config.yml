@@ -9,18 +9,19 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Pablo Melchi # add your name
 author-img: pablo-melchi.jpg # add your photo
-about-author: I'm a solution architect with a lot of experience in Java  # add description
-social-twitter: # add your Twitter handle
-social-facebook: # add your Facebook handle
-social-github: artemsheludko # add your Github handle
-social-linkedin: # add your Linkedin handle
-social-email: # add your Email address
+about-author: Solution architect with experience in large systems  # add description
+social-twitter: pmelchi# add your Twitter handle
+#social-facebook: # add your Facebook handle
+social-github: pmelchi # add your Github handle
+social-linkedin: pablomelchi # add your Linkedin handle
+#social-email: # add your Email address
 
 # Disqus
 discus-identifier: mr-brown # add your discus identifier
 
 # Tracker
-analytics: # Google Analytics
+# Google Analytics
+analytics: UA-162209898-1
 
 # Build Settings
 markdown: kramdown
