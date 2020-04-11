@@ -1,0 +1,27 @@
+---
+layout: post
+title: Pi-Hole running on docker
+date: 2020-03-26 08:00:00:00 +0600
+description: Mounting and using your USB disk # Add post description (optional)
+img: i-rest.jpg # Add image post (optional)
+fig-caption: # Add figcaption (optional)
+tags: [Linux, singleboard, armbian]
+---
+
+~~~~
+sudo apt install python3
+sudo apt install python3-pip
+sudo apt install libffi-dev
+sudo apt-get install python3-setuptools
+sudo pip3 install wheel
+sudo apt install python3-dev
+sudo pip3 install docker-compose
+~~~~
+
+We want to create a rsync client with a rock64 using armbian
+
+In order to see where your USB device is located, we can use dmesg (on a not so busy system), you can easily spot your device with the sda :sda1 (let's remember that sda is you device and sda1 is your partition)
+
+Sources: https://linuxhint.com/list-usb-devices-linux/
+
+Note. Document post are post where I cover very obvious things you can google, but it saves my time next time I need to use it
