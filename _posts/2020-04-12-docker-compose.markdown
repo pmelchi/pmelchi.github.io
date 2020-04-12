@@ -8,6 +8,8 @@ fig-caption: Docker/ rock 64 # Add figcaption (optional)
 tags: [Linux, singleboard, armbian, docker]
 ---
 
+How to install docker and docker compose on a rock64, including packages that need to be installed first
+
 It's a pretty straighforward process the only thing different is that compose needs to be installed via pip
 
 # Install docker
