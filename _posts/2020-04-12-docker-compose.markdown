@@ -3,7 +3,7 @@ layout: post
 title: Basic docker/compose installation on rock64
 date: 2020-04-12 08:00:00:00 +0600
 description: How to install docker and docker compose on a rock64, including packages that need to be installed first  # Add post description (optional)
-img: posts/20-04-12-docker.png # Add image post (optional)
+img: 20-04-12-docker.png # Add image post (optional)
 fig-caption: Docker/ rock 64 # Add figcaption (optional)
 tags: [Linux, singleboard, armbian, docker]
 ---
