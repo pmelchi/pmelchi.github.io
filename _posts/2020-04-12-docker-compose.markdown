@@ -36,7 +36,6 @@ Once that's done, we can jump to installing docker-compose
 
 This is the list I came up with, (just jumping into installing docker-compose doesn't work), the
 
-## Summary of commands
 ```
 foo@bar:~$ sudo apt install python3 python3-pip libffi-dev python3-setuptools python3-dev
 
