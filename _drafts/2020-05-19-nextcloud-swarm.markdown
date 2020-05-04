@@ -10,5 +10,8 @@ tags: [docker, nextcloud]
 
 Let's assume 
 
+# Everything ok until you have to deal with NFS
+To squash or no to squash
+
 Sources:
 https://docs.docker.com/engine/swarm/
