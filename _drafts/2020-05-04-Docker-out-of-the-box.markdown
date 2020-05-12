@@ -26,6 +26,10 @@ Now that might be used to your advantage when you are running temporal jobs that
 You can attach an NFS to your [docker volume] and use it directly from your container although here's the thing, you'll face the regular NFS issues *e.g. security, permissions* plus your container is running with god knows what user, so it mounts the volume using *root* and it tries to access the folder with the same permission than is in your container.
 For example in [mariadb] ask you have to make sure that your volume (NFS or not) has to belong to the mysql user and if use are using NFS, that means mapping has to be done
 
+###Plus inherent issues from MYSQL:
+https://dev.mysql.com/doc/refman/8.0/en/disk-issues.html
+
+
 ##Attaching physical storage
 Let's say that some nodes in your swarm have better storage that others and you prefer to run your *file intensive process* on these nodes, well you'll have to run that service our of your swarm as an independent container with an independent network [overlay]
 
