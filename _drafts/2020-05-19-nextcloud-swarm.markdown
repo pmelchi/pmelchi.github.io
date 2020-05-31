@@ -15,3 +15,9 @@ To squash or no to squash
 
 Sources:
 https://docs.docker.com/engine/swarm/
+https://docs.docker.com/engine/swarm/stack-deploy/
+https://samhobbs.co.uk/2015/01/dynamic-dns-ddclient-raspberry-pi-and-ubuntu
+https://github.com/ddclient/ddclient
+https://support.google.com/domains/answer/6147083?authuser=2&hl=en-GB
+https://docs.docker.com/engine/swarm/stack-deploy/
+https://docs.docker.com/engine/swarm/ingress/
