@@ -14,7 +14,7 @@ The issue itself is that making queries to a MSSQL 2016 database will break if y
 
 This can be easily seen in the following query:
 
-{% highlight java %}
+{% highlight sql %}
 select cast (SYSDATETIME ( ) as datetime) as my_datetime,  cast (SYSDATETIME ( ) as datetime2) as my_datetime2
 {% endhighlight %}
 
@@ -71,7 +71,73 @@ I tried everything from strings, date, calendar, different timezones
 
 I believe that the real test is to *select* you row by some other field and then try again with your *timestamp* and so I did
 
+{% highlight java %}
+package mssql;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+public class MySelectTest {
+
+    // Connect to your database.
+    // Replace server name, username, and password with your credentials
+    public static void main(String[] args) {
+       
+    	
+    	String connectionUrl = "jdbc:sqlserver://<hostname>:<PORT>;databaseName=<DBNAME>;" +
+    			"user=<myuser>;" +
+    			"password=<mypassword>;" +
+    			"encrypt=true;" +
+    			"trustServerCertificate=true;";
+
+    	StringBuilder sbSelect1 = new StringBuilder();
+    	sbSelect1.append("select "); 
+    	sbSelect1.append("* "); 
+    	sbSelect1.append("from MY_TABLE mytable"); 
+    	sbSelect1.append("and mytable.otherKey = ? ");
+    	
+    	StringBuilder sbSelect2 = new StringBuilder();
+    	sbSelect1.append("select "); 
+    	sbSelect1.append("* "); 
+    	sbSelect1.append("from MY_TABLE mytable"); 
+    	sbSelect1.append("and mytable.myTimestamp= ? ");
+
+    	String SQL = sbSelect1.toString();
+    	try (Connection con = DriverManager.getConnection(connectionUrl); ) {
+    		PreparedStatement stmt = con.prepareStatement(sbSelect1.toString());
+    		
+            ResultSet rs = stmt.executeQuery();
+
+        
+            Calendar cal 
+            // Iterate through the data in the result set and display it.
+            while (rs.next()) {
+                System.out.print("Found Date: " + rs.getDate("myTimestamp"));
+                System.out.print(" - Timestamp: " + rs.getTimestamp("myTimestamp"));
+                System.out.print(" - Milis: " + rs.getTimestamp("myTimestamp").getTime());
+                Calendar calResult = Calendar.getInstance();
+                Timestamp ts = rs.getTimestamp("LastUpdTime", calResult);
+                System.out.println(" - Calendar: " + ts);
+            }
+            
+            PreparedStatement stmt = con.prepareStatement(sbSelect1.toString());
+            
+            
+        }
+        // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+{% endhighlight %}
 
 
 #The solution
