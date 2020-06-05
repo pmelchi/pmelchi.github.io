@@ -10,7 +10,7 @@ tags: [java, hibernate, mssql2016, datetime, datetime2]
 
 #The issue
 ##I cannot query by timestamp in MSSQL 2016
-The issue itself is that making queries to a MSSQL 2016 database will break if you are using a timestamp, the problem is that starting in MSSQL 2016 datetime has changed to provided more accuracy 
+The issue itself is that making queries to a MSSQL 2016 database will break if you are using a timestamp, the problem is that starting in MSSQL 2016 datetime has been upgraded to provided more accuracy for the datetime fields
 
 This can be easily seen in the following query:
 
@@ -24,13 +24,14 @@ select cast (SYSDATETIME ( ) as datetime) as my_datetime,  cast (SYSDATETIME ( )
 
 
 You can notice how *datetime* includes only 3 digits in the millisecond field while *datetime2* includes 7, so is 123 equal to 1224577? Not according to MSSQL
-My personal thinking is that MSSQL should be smart enough to know and cast accordingly but according to the documentation the problem comes because java has only 1 SQL field type for timestamp (java.sql.Timestamp), 
+My personal thinking is that MSSQL should be smart enough to cast according to the driver version but according to the documentation the problem comes because java has only 1 SQL field type for timestamp (java.sql.Timestamp), 
 so they decided to upgrade the field type without a warning (I mean you could have kept this between JDBC versions) 
 
-They upgrade itself is mentioned in t
+The MSSQL 2016 datetime documentation mentions the differences between accuracy
 
 
 #My Issue 
+##How it started
 I was making some changes to an old java application, this application uses Spring JPA repostories which has some convenient features but the one in interest here is "save", 
 which figure out for you if you are trying to INSERT or UPDATE your entity by using only 1 method (Although this is not the only way to implement this behavior, this is the way it was implemented for this application)
 
@@ -45,6 +46,34 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 I made a couple changes and this code was working perfectly fine in one of my environments but it was failing in a second environment (Classic developer complaining becuase it works fine in his computer - Everyone) 
 
 
+#How I found it
+I started looking in hibernate and how it was trying to do the save, maybe you are already aware of this but when you invoke the *save* method, hibernate will
+1) Try to fine the PK in the cache
+2) Try to find the PK in the DB
+3) If found, then update
+4) If NOT found, then insert
+
+It was always inserting, I had a table with a composed key which included some string, number and the timestamp, but then I noticed that during the query phase it was not finding the entity, why?
+
+[2020-06-02 11:06:17,323] WebContainer : 0 org.hibernate.loader.Loader DEBUG - Bound [8] parameters total
+[2020-06-02 11:06:17,382] WebContainer : 0 org.hibernate.jdbc.AbstractBatcher DEBUG - about to open ResultSet (open ResultSets: 0, globally: 0)
+[2020-06-02 11:06:17,382] WebContainer : 0 org.hibernate.loader.Loader DEBUG - processing result set
+[2020-06-02 11:06:17,383] WebContainer : 0 org.hibernate.loader.Loader DEBUG - done processing result set **(0 rows)**
+
+###Let's create the same query
+So I decided to run the same query
+
+I tried everything from strings, date, calendar, different timezones
+- Date: 0 rows
+- Calendar: 0 rows
+- Calendar with different timezone, because someone mentioned UTC was the standard: 0 rows
+- String: 1 row, *for some reason I can't understand if you pass a string, it will be casted correctly*
+
+I believe that the real test is to *select* you row by some other field and then try again with your *timestamp* and so I did
+
+
+
+
 #The solution
 There're 2 ways to solve this issue
 1. Change your compatibility level 
@@ -55,3 +84,4 @@ The idea between these 2 strategies is that you change the compatibility level t
 
 [Spring JPA repostories]: https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html
 [Change your compatibility level]: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2016
+[MSSQL 2016 datetime]https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime-transact-sql?view=sql-server-2016
