@@ -11,7 +11,7 @@ tags: [docker, nextcloud]
 There's a known *issue* in linux where USB disk won't run smartmon with UAS because of the driver
 This is how to disable th
 
-##How do I know if I'm using UAS driver
+## How do I know if I'm using UAS driver
 
 if you use *lsusb -t* the output of this command will give you the information
 You can see below the second line contains *Driver=uas*
@@ -22,7 +22,7 @@ You can see below the second line contains *Driver=uas*
     |__ Port 3: Dev 2, If 0, Class=Mass Storage, Driver=uas, 5000M
 {% endhighlight %}
 
-##Find the idVendor and idProduct fields for your device
+## Find the idVendor and idProduct fields for your device
 
 Since we want to disable it via quirks, you need to find your *idVendor and IdProduct*
 
@@ -41,7 +41,7 @@ Bus 001 Device 002: ID 8087:07dc Intel Corp.
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 {% endhighlight %}
 
-##Update initramfs options and reboot
+## Update initramfs options and reboot
 Add the quirk option to your configuration 
 We'll be telling the kernel to not bind UAS for this drive 
 
