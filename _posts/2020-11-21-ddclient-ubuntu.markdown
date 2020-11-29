@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Add ddclient to ubuntu - google domains 
+title: Configure ddclient for google domains in ubuntu 
 date: 2020-11-21 08:00:00:00 +0600
 description: Add ddclient configured with google domains
 img: posts/2020-11-21-rack.jpg # Add image post (optional)
@@ -8,7 +8,6 @@ fig-caption: Photo by Taylor Vick on Unsplash
 tags: [linux, ubuntu, dynamicdns]
 ---
 
-# HOWTO: Configure ddclient for google domains in ubuntu
 This is a sample configuration to create a new dynamic subdomain using google domains
 
 
