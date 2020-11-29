@@ -3,7 +3,7 @@ layout: post
 title: Add ddclient to ubuntu - google domains 
 date: 2020-11-21 08:00:00:00 +0600
 description: HOWTO: Add ddclient configured with google domains
-img: 2020-11-21-rack.jpg # Add image post (optional)
+img: posts/2020-11-21-rack.jpg # Add image post (optional)
 fig-caption: Photo by Taylor Vick on Unsplash
 tags: [linux, ubuntu, dynamicdns]
 ---
