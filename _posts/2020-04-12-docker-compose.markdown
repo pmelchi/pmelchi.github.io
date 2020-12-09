@@ -17,9 +17,9 @@ It's a pretty straighforward process the only thing different is that compose ne
 Installing docker, it's easy with softy, it's actually easier than the official docker method where in version 19.03 suggested to use the "convinience script" (which in general it also seems to be detecting and using the package)
 
 Softy is a menu based installed, you can get directly there by executing
-```
+{% highlight shell %}
 sudo softy
-```
+{% endhighlight %}
 
 Or you can always check the whole set of options by using:
 {% highlight shell %}
