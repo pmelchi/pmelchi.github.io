@@ -20,7 +20,7 @@ Volume Weighted Average Price (or VWAP) is a trading bechmark that will give you
 | 12    |  5     |
 | 14    |  10    |
 
-The formula is: ![vwap-formula]({{site.baseurl}}/assets/img/posts/2021-05-20-vwap-formula.png)
+The formula is: ![vwap-formula]({{site.baseurl}}/assets/img/posts/2021-05-30-vwap-formula.png)
 
 In this scenario the VWAP will be: ((10 * 5) + (12 * 5) + (14 * 10)) / 20 = 12.5
 
