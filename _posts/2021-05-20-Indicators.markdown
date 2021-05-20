@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Notes on technical analysis - Indicators
+title: Technical analysis - Indicators
 date: 2021-05-20 08:00:00:00 +0600
-description: Quick guide for technical indicators# Add post description (optional)
+description: Quick guide for technical indicators # Add post description (optional)
 img: posts/2021-05-30-post.jpg # Add image post (optional)
 fig-caption: Stock chart # Add figcaption (optional)
 tags: [finance, stocks]
