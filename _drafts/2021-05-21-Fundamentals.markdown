@@ -21,3 +21,4 @@ Equity = Assets - Liabilities
 
 It's easier to use a summary like the one in yahoo financials
 
+# TODO find fundamental ratios
