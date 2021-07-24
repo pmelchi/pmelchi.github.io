@@ -8,8 +8,8 @@ fig-caption: MSQSQL 2016# Add figcaption (optional)
 tags: [java, hibernate, mssql2016, datetime, datetime2]
 ---
 
-#The issue
-##I cannot query by timestamp in MSSQL 2016
+# The issue
+## I cannot query by timestamp in MSSQL 2016
 The issue itself is that making queries to a MSSQL 2016 database will break if you are using a timestamp, the problem is that starting in MSSQL 2016 datetime has been upgraded to provided more accuracy for the datetime fields
 
 This can be easily seen in the following query:
@@ -30,8 +30,8 @@ so they decided to upgrade the field type without a warning (I mean you could ha
 The MSSQL 2016 datetime documentation mentions the differences between accuracy
 
 
-#My Issue 
-##How it started
+# My Issue 
+## How it started
 I was making some changes to an old java application, this application uses Spring JPA repostories which has some convenient features but the one in interest here is "save", 
 which figure out for you if you are trying to INSERT or UPDATE your entity by using only 1 method (Although this is not the only way to implement this behavior, this is the way it was implemented for this application)
 
@@ -46,7 +46,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 I made a couple changes and this code was working perfectly fine in one of my environments but it was failing in a second environment (Classic developer complaining becuase it works fine in his computer - Everyone) 
 
 
-#How I found it
+# How I found it
 I started looking in hibernate and how it was trying to do the save, maybe you are already aware of this but when you invoke the *save* method, hibernate will
 1) Try to fine the PK in the cache
 2) Try to find the PK in the DB
@@ -60,7 +60,7 @@ It was always inserting, I had a table with a composed key which included some s
 [2020-06-02 11:06:17,382] WebContainer : 0 org.hibernate.loader.Loader DEBUG - processing result set
 [2020-06-02 11:06:17,383] WebContainer : 0 org.hibernate.loader.Loader DEBUG - done processing result set **(0 rows)**
 
-###Let's create the same query
+### Let's create the same query
 So I decided to run the same query
 
 I tried everything from strings, date, calendar, different timezones
@@ -140,7 +140,7 @@ public class MySelectTest {
 {% endhighlight %}
 
 
-#The solution
+# The solution
 There're 2 ways to solve this issue
 1. Change your compatibility level 
 2. Change your column type to datefield2
