@@ -8,7 +8,7 @@ fig-caption: MSQSQL 2016 # Add figcaption (optional)
 tags: [java, hibernate, mssql2016, datetime, datetime2]
 ---
 
-# The issue
+# The problem we are trying to solve
 ## I cannot query by timestamp in MSSQL 2016
 The issue itself is that making queries to a MSSQL 2016 database will break if you are using a timestamp, the problem is that starting in MSSQL 2016 datetime has been upgraded to provided more accuracy for the datetime fields
 
@@ -30,8 +30,8 @@ so they decided to upgrade the field type without a warning (I mean you could ha
 The MSSQL 2016 datetime documentation mentions the differences between accuracy
 
 
-# My Issue 
-## How it started
+# How it looked in my scenario 
+## How did you notice this was the issue?
 I was making some changes to an old java application, this application uses Spring JPA repostories which has some convenient features but the one in interest here is "save", 
 which figure out for you if you are trying to INSERT or UPDATE your entity by using only 1 method (Although this is not the only way to implement this behavior, this is the way it was implemented for this application)
 
