@@ -3,8 +3,8 @@ layout: post
 title: MSSQL and Java timestamp issue 
 date: 2020-06-03 08:00:00:00 +0600
 description: MSSQL 2016 and above have issue with java and datetime
-img: 2020-06-04-mssql.jpg # Add image post (optional)
-fig-caption: MSQSQL 2016# Add figcaption (optional)
+img: posts/2020-06-04-mssql.jpg # Add image post (optional)
+fig-caption: MSQSQL 2016 # Add figcaption (optional)
 tags: [java, hibernate, mssql2016, datetime, datetime2]
 ---
 
