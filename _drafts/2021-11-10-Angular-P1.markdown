@@ -8,19 +8,23 @@ fig-caption: None
 tags: [development, angular]
 ---
 
-This is a sample configuration to create a new dynamic subdomain using google domains
+
+## Angular versioning
+
+AngularJS (Angular 1) - This is the initial version
+Angular2 - it's a complete rewrite to fix Angular1 problems, since then versioning has changed and it now there's angular 12 relased on May 12, 2021
 
 
-## Google domains: Create your new subdomain
+## Installing Angular
 
-You need to set a new Dynamic DNS synthetic record by signing in you google domain
+1. Download the current LTS version of angular in https://nodejs.org/en/download/
+*Note.* it's easier if you install the MSI version, so you don't have to setup PATHS manually for the node or npm commands.
+2. Install the latest version of Angular using the following command 
+{% highlight shell %}
+npm install -g @angular/cli@latest
+{% endhighlight %}
 
-1. Select the name of your domain.
-2. Click DNS.
-3. Go to Synthetic Records.
-4. Select "Dynamic DNS" from the list of synthetic record types.
-5. Enter a  name of the subdomain 
-6. Click View Credentials to view the user name and password created for this record.
+
 
 ## Server side: Install DD client
 
