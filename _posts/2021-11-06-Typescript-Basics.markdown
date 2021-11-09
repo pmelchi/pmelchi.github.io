@@ -1,0 +1,157 @@
+---
+layout: post
+title: Quick review of Typescript basics
+date: 2021-11-06 08:00:00:00 +0600
+description: A quick review on typescript for angular
+img: posts/default-post.jpg # Add image post (optional)
+fig-caption: None
+tags: [development, typescript]
+---
+
+## What's typescript
+Typescript is very similar to javascript because it's an extension of javascript
+
+ 1) Typescript cannot be used directly on the browser. Typescript can be compiled to javascript but it cannot be used directly on the browser.
+ 
+ You can install typescript by typing the following command. You can also check the latest at [typescriptlang.org] (https://www.typescriptlang.org/download)
+ {% highlight shell %}
+npm install typescript --save-dev
+{% endhighlight %}
+
+ 2) It uses static typing. This means that unlike javascript where variables can change type or be created at any point in time. Typescript is more strict and it'll encourage you to declare your variables and use them according to the declared type.
+
+
+While this is possible in javascript and it works like an overloaded function ( Numbers will add and strings will concatenate )
+ {% highlight javascript %}
+ //Javascript
+function add(a, b) {
+    return a + b;
+}
+
+const result = add('2', '5')
+{% endhighlight %}
+
+With typescript you'd usually declare your types for safety:
+
+{% highlight typescript%}
+//Typescrpit
+function add(a: number, b: number) {
+    return a + b;
+}
+
+const result = add(2, 5);
+{% endhighlight %}
+
+ 3) it's compiled. Unlike javascript which you can run directly on your browser (which makes it an interpreted language), typescript needs to be compiled before you run it.
+
+ 
+## Types
+
+### Primitives
+ - number
+{% highlight typescript%}
+let myNumber: number;
+myNumber = 20;
+{% endhighlight %}
+ - string
+{% highlight typescript%}
+ let myString: string;
+myString = 'some string';
+{% endhighlight %}
+ 
+ - boolean
+ 
+{% highlight typescript%}
+ let myBoolean: boolean;
+myBoolean = false;
+{% endhighlight %}
+###Complex types
+ -  arrays
+ 
+ {% highlight typescript%}
+let myArray: string[];
+myArray = ['S1', 's2'];
+{% endhighlight %}
+
+
+ - objects 
+ 
+{% highlight typescript%}
+ let myHouse: {
+    type: string;
+    myNumber: number;
+};
+
+myHouse = {
+    type: 'classic',
+    myNumber: 34
+}
+{% endhighlight %}
+
+### Union types
+
+{% highlight typescript%}
+let myUnionType: string | number = 'test';
+
+myUnionType = 4;
+{% endhighlight %}
+
+### Type aliases
+{% highlight typescript%}
+type House = {
+    type: string;
+    houseNumber: number;
+}
+
+let mySecondHouse: House;
+{% endhighlight %}
+
+### Generics
+{% highlight typescript%}
+function myPush <T>(array: T[], value: T) {
+    const newArray = [value, ...array];
+    return newArray;
+}
+const demoArray = [1, 2, 3];
+
+const updatedDemoArray = myPush(demoArray, -2);
+{% endhighlight %}
+
+### Classes
+{% highlight typescript%}
+class DifferentHouse {
+    type: string;
+    size: number;
+
+    constructor(type: string, size: number) {
+        this.type = type;
+        this.size = size;
+    }
+
+    grow(size: number) {
+        this.size = size;
+    }
+}
+
+const mansion = new DifferentHouse('Arch', 45);
+mansion.grow(50);
+{% endhighlight %}
+
+
+### Class with constructor 
+{% highlight typescript%}
+class ShortHouse {
+
+    constructor(private type: string, private size: number) {
+        this.type = type;
+        this.size = size;
+    }
+
+    grow(size: number) {
+        this.size = size;
+    }
+}
+
+const mansion = new ShortHouse('Arch', 45);
+mansion.grow(50);
+{% endhighlight %}
