@@ -97,6 +97,8 @@ myUnionType = 4;
 {% endhighlight %}
 
 ### Type aliases
+
+
 {% highlight typescript%}
 type House = {
     type: string;
@@ -107,6 +109,9 @@ let mySecondHouse: House;
 {% endhighlight %}
 
 ### Generics
+Generics are very similar to java generics. It's a generic type used instead of a concrete type definition, this abstract type can be used around the function where it was declared.
+It avoids working with repeated code while keeping it type safe.
+
 {% highlight typescript%}
 function myPush <T>(array: T[], value: T) {
     const newArray = [value, ...array];
@@ -118,6 +123,10 @@ const updatedDemoArray = myPush(demoArray, -2);
 {% endhighlight %}
 
 ### Classes
+This is a class that very similar to other languages, it helps to define properties and operations of an object.
+Typescript has constructors, which are very similar to C++.
+
+
 {% highlight typescript%}
 class DifferentHouse {
     type: string;
@@ -139,6 +148,9 @@ mansion.grow(50);
 
 
 ### Class with constructor 
+
+This is a class that uses a constructor to define the properties it contains.
+
 {% highlight typescript%}
 class ShortHouse {
 
@@ -154,4 +166,29 @@ class ShortHouse {
 
 const mansion = new ShortHouse('Arch', 45);
 mansion.grow(50);
+{% endhighlight %}
+
+### Interfaces
+ - These are only available on typescript (not javascript).
+ - They are very similar to *alias* with the main difference that they can be implemented by classes.
+ - Ma
+
+
+{% highlight typescript%}
+interface House {
+	size: number;
+	model: string;
+	
+	build:() => boolean;
+
+	
+}
+
+let myMansion: House;
+
+myMansion = {
+	size: 20,
+	model: 'abcd1234'
+};
+
 {% endhighlight %}
