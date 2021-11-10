@@ -65,7 +65,7 @@ myString = 'some string';
  let myBoolean: boolean;
 myBoolean = false;
 {% endhighlight %}
-###Complex types
+### Complex types
  -  arrays
  
  {% highlight typescript%}
