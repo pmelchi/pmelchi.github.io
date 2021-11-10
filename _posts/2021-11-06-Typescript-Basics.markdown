@@ -22,7 +22,8 @@ npm install typescript --save-dev
 
 
 While this is possible in javascript and it works like an overloaded function ( Numbers will add and strings will concatenate )
- {% highlight javascript %}
+
+{% highlight javascript %}
  //Javascript
 function add(a, b) {
     return a + b;
@@ -34,7 +35,8 @@ const result = add('2', '5')
 With typescript you'd usually declare your types for safety:
 
 {% highlight typescript%}
-//Typescrpit
+
+//Typescript
 function add(a: number, b: number) {
     return a + b;
 }
@@ -89,6 +91,8 @@ myHouse = {
 {% endhighlight %}
 
 ### Union types
+
+This is to declare a variable that can hold more than one type.
 
 {% highlight typescript%}
 let myUnionType: string | number = 'test';
@@ -175,6 +179,7 @@ mansion.grow(50);
 
 
 {% highlight typescript%}
+//Declare an interface
 interface House {
 	size: number;
 	model: string;
@@ -184,11 +189,30 @@ interface House {
 	
 }
 
+//Use an interface to declare an object
 let myMansion: House;
-
 myMansion = {
 	size: 20,
 	model: 'abcd1234'
 };
 
+//Use an interface to implement a class
+class BigHouses implements House {
+	size: number;
+	model: string;
+	build() {
+		return true;
+	}
+}
+
+{% endhighlight %}
+
+### Initialize environment
+
+In order to creat an intial configuration file, you can use the following command.
+it creates a file called tsconfig.ts which contains the option to configure your typescript environment.
+
+{% highlight shell %}
+npx tsc --init
+message TS6071: Successfully created a tsconfig.json file.
 {% endhighlight %}
