@@ -11,14 +11,14 @@ tags: [development, typescript]
 ## What's typescript
 Typescript is very similar to javascript because it's an extension of javascript
 
- 1) Typescript cannot be used directly on the browser. Typescript can be compiled to javascript but it cannot be used directly on the browser.
+ 1. **Typescript cannot be used directly on the browser.** Typescript can be compiled to javascript but it cannot be used directly on the browser.
  
  You can install typescript by typing the following command. You can also check the latest at [typescriptlang.org] (https://www.typescriptlang.org/download)
  {% highlight shell %}
 npm install typescript --save-dev
 {% endhighlight %}
 
- 2) It uses static typing. This means that unlike javascript where variables can change type or be created at any point in time. Typescript is more strict and it'll encourage you to declare your variables and use them according to the declared type.
+ 2. **It uses static typing.** This means that unlike javascript where variables can change type or be created at any point in time. Typescript is more strict and it'll encourage you to declare your variables and use them according to the declared type.
 
 
 While this is possible in javascript and it works like an overloaded function ( Numbers will add and strings will concatenate )
@@ -44,7 +44,7 @@ function add(a: number, b: number) {
 const result = add(2, 5);
 {% endhighlight %}
 
- 3) it's compiled. Unlike javascript which you can run directly on your browser (which makes it an interpreted language), typescript needs to be compiled before you run it.
+ 3. **it's compiled.** Unlike javascript which you can run directly on your browser (which makes it an interpreted language), typescript needs to be compiled before you run it.
 
  
 ## Types
@@ -67,6 +67,7 @@ myString = 'some string';
  let myBoolean: boolean;
 myBoolean = false;
 {% endhighlight %}
+
 ### Complex types
  -  arrays
  
@@ -102,6 +103,7 @@ myUnionType = 4;
 
 ### Type aliases
 
+This is the equivalent of structures in C, but it works like classes in javascript.
 
 {% highlight typescript%}
 type House = {
