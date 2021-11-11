@@ -1,15 +1,15 @@
 ---
 layout: post
 title: Initial notes on angular
-date: 2021-11-10 08:00:00:00 +0600
+date: 2021-11-13 08:00:00:00 +0600
 description: My initial notes on angular
-img: posts/2020-11-21-rack.jpg # Add image post (optional)
+img: posts/default-post.jpg # Add image post (optional)
 fig-caption: None
 tags: [development, angular]
 ---
 
 
-## Angular versioning
+## Angular versions
 
 AngularJS (Angular 1) - This is the initial version
 Angular2 - it's a complete rewrite to fix Angular1 problems, since then versioning has changed and it now there's angular 12 relased on May 12, 2021
@@ -43,149 +43,85 @@ cd my-first-app
 ng server
 {% endhighlight %}
 
+## Default project structure
 
-## What's typescript
-Typescript is very similar to javascript because it's an extension of javascript
+- your-app
+  - *angular.json* Defines angular build defaults
+  - src
+    - *index.html* default initial page UI.
+	- *main.ts* This is the first code that gets executed.
+    - app
+	  - *app.component.html* Initial component UI.
+	  - *app.component.ts* Main and default component code
+	  - *app.module.ts* Main modules definition.
 
- 1) Typescript cannot be used directly on the browser. Typescript can be compiled to javascript but it cannot be used directly on the browser.
+### app.component.ts
+
+This is the defintion of a module, which will allows us to use it later.
+
+**selector** is very important, because it allows us to define the name that we'll use to "insert" our module. 
+We can insert a new module on an html by by using it as an html tag *e.g. <app-server></app-server>*
+
+
+{% highlight typescript%}
+import { Component } from "@angular/core";
+
+@Component({
+    selector: 'app-server', // Selector name
+    templateUrl: './server.component.html'
+})
+export class ServerComponent {
+
+}
+{% endhighlight %}
+
+### app.module.ts
+
+Here you can add new modules to the application.
+
+After you have added the module
+
+{% highlight typescript%}
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { ServerComponent } from './server/server.component';//New module, and actual location
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ServerComponent //New module declaration
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+{% endhighlight %}
+
+
+### angular.json
+
+This is the main configuration file and it defines defaults for:
  
- You can install typescript by typing the following command or looking at the [download page] (https://www.typescriptlang.org/download)
- {% highlight shell %}
-npm install typescript --save-dev
-{% endhighlight %}
-
- 2) It uses static typing. This means that unlike javascript where variables can change type or be created at any point in time. Typescript is more strict and it'll force you to declare your variables and use them according to the declared type.
-
-
-While this is possible in javascript and it works like an overloaded function ( Numbers will add and strings will concatenate )
- {% highlight javascript %}
-function add(a, b) {
-    return a + b;
-}
-
-const result = add('2', '5')
-{% endhighlight %}
-
-With typescript you'd usually declare your types for safety:
-
-{% highlight typescript%}
-function add(a: number, b: number) {
-    return a + b;
-}
-
-const result = add(2, 5);
-{% endhighlight %}
-
- 3) it's compiled. Unlike javascript which you can run directly on your browser (which makes it an interpreted language), typescript needs to be compiled before you run it.
-
+ - styles (css)
+ - build
+ - development tools (e.g. cli, schematics, architect)
+ - libraries
  
-## Basic typescript
+*Note.* Paths are relative to the root folder of the workspace
 
-### Primitives
- - number
-{% highlight typescript%}
-let myNumber: number;
-myNumber = 20;
-{% endhighlight %}
- - string
-{% highlight typescript%}
- let myString: string;
-myString = 'some string';
-{% endhighlight %}
- 
- - boolean
- 
-{% highlight typescript%}
- let myBoolean: boolean;
-myBoolean = false;
-{% endhighlight %}
-###Complex types
- -  arrays
- 
- {% highlight typescript%}
-let myArray: string[];
-myArray = ['S1', 's2'];
+
+## Add a new component
+it can be done manually but you can also use the CLI
+
+{% highlight shell %}
+ng generate component <my-new-component>
 {% endhighlight %}
 
-
- - objects 
- 
-{% highlight typescript%}
- let myHouse: {
-    type: string;
-    myNumber: number;
-};
-
-myHouse = {
-    type: 'classic',
-    myNumber: 34
-}
-{% endhighlight %}
-
-### Union types
-
-{% highlight typescript%}
-let myUnionType: string | number = 'test';
-
-myUnionType = 4;
-{% endhighlight %}
-
-### Type aliases
-{% highlight typescript%}
-type House = {
-    type: string;
-    houseNumber: number;
-}
-
-let mySecondHouse: House;
-{% endhighlight %}
-
-### Generics
-{% highlight typescript%}
-function myPush <T>(array: T[], value: T) {
-    const newArray = [value, ...array];
-    return newArray;
-}
-const demoArray = [1, 2, 3];
-
-const updatedDemoArray = myPush(demoArray, -2);
-{% endhighlight %}
-
-### Classes
-{% highlight typescript%}
-class DifferentHouse {
-    type: string;
-    size: number;
-
-    constructor(type: string, size: number) {
-        this.type = type;
-        this.size = size;
-    }
-
-    grow(size: number) {
-        this.size = size;
-    }
-}
-
-const mansion = new DifferentHouse('Arch', 45);
-mansion.grow(50);
-{% endhighlight %}
-
-
-### Class with constructor 
-{% highlight typescript%}
-class ShortHouse {
-
-    constructor(private type: string, private size: number) {
-        this.type = type;
-        this.size = size;
-    }
-
-    grow(size: number) {
-        this.size = size;
-    }
-}
-
-const mansion = new ShortHouse('Arch', 45);
-mansion.grow(50);
-{% endhighlight %}
+This will generate the required files with a minimum content to start a new component.
