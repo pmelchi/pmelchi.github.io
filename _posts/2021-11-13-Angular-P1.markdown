@@ -11,8 +11,8 @@ tags: [development, angular]
 
 ## Angular versions
 
-AngularJS (Angular 1) - This is the initial version
-Angular2 - it's a complete rewrite to fix Angular1 problems, since then versioning has changed and it now there's angular 12 relased on May 12, 2021
+ - AngularJS (Angular 1) - This is the initial version.
+ - Angular2 - it's a complete rewrite to fix Angular1 problems, since then versioning has changed and it now there's angular 12 relased on May 12, 2021
 
 
 ## Installing Angular
@@ -33,10 +33,12 @@ To create a new project, we need to type from the command prompt.
 ng new <project name> --no-strict
 {% endhighlight %}
 
-The *--no-strict* flag is used to disable some optimizations along with best practices validation. This is to make our life easier in the begining of our development.
+*--no-strict* flag is used to disable some optimizations along with best practices validation. This is to make our life easier in the begining of our development.
 
 ### Start the new server ###
-We need to get into the folder and run ng serve
+After we have created our project, we can start a local server for development with the command below.
+This command will help us compile our code and push it to a local server where we can see our current changes.
+By default you can see your changes at: http://localhost:4200/
 
 {% highlight shell %}
 cd my-first-app
@@ -59,9 +61,10 @@ ng server
 
 This is the defintion of a module, which will allows us to use it later.
 
-**selector** is very important, because it allows us to define the name that we'll use to "insert" our module. 
-We can insert a new module on an html by by using it as an html tag *e.g. <app-server></app-server>*
+**selector** allows us to define the name that we'll use to "insert" our module. 
+We can insert a new module on an html by using it as an html. 
 
+For example:
 
 {% highlight typescript%}
 import { Component } from "@angular/core";
@@ -75,18 +78,23 @@ export class ServerComponent {
 }
 {% endhighlight %}
 
+We can use the component above with the following tag.
+{% highlight html%}
+<app-server></app-server>
+{% endhighlight %}
+
+
 ### app.module.ts
 
 Here you can add new modules to the application.
-
-After you have added the module
 
 {% highlight typescript%}
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ServerComponent } from './server/server.component';//New module, and actual location
+//New module in a relative path
+import { ServerComponent } from './server/server.component';
 
 @NgModule({
   declarations: [
@@ -125,3 +133,43 @@ ng generate component <my-new-component>
 {% endhighlight %}
 
 This will generate the required files with a minimum content to start a new component.
+
+### Selector
+The selector is the name that will help us identify and use our component across the application.
+
+**Using a component**
+ - *as a tag* This allows to use the whole component
+ 
+ {% highlight typescript%}
+import { Component } from "@angular/core";
+
+@Component({
+    selector: 'app-server', // Select as a tag
+    templateUrl: './server.component.html'
+})
+export class ServerComponent {
+
+}
+{% endhighlight %}
+ 
+ {% highlight html%}
+<app-server></app-server>
+{% endhighlight %}
+
+ - *as an attribute* this allows to use the component inside other tags
+ 
+  {% highlight typescript%}
+import { Component } from "@angular/core";
+
+@Component({
+    selector: '[app-server]', // Select as a tag
+    templateUrl: './server.component.html'
+})
+export class ServerComponent {
+
+}
+{% endhighlight %}
+ 
+ {% highlight html%}
+<app-server></app-server>
+{% endhighlight %}
