@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Component configuration
-date: 2021-11-13 08:00:00:00 +0600
+title: Angular Databinding
+date: 2021-11-27 08:00:00:00 +0600
 description: Components configuration
 img: posts/default-post.jpg # Add image post (optional)
 fig-caption: None
