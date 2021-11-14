@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Initial notes on angular
+title: Starting with angular
 date: 2021-11-13 08:00:00:00 +0600
-description: My initial notes on angular
+description: Starting development with angular
 img: posts/default-post.jpg # Add image post (optional)
 fig-caption: None
 tags: [development, angular]
@@ -35,7 +35,7 @@ ng new <project name> --no-strict
 
 *--no-strict* flag is used to disable some optimizations along with best practices validation. This is to make our life easier in the begining of our development.
 
-### Start the new server ###
+### Start test server ###
 After we have created our project, we can start a local server for development with the command below.
 This command will help us compile our code and push it to a local server where we can see our current changes.
 By default you can see your changes at: http://localhost:4200/
@@ -62,7 +62,7 @@ ng server
 This is the defintion of a module, which will allows us to use it later.
 
 **selector** allows us to define the name that we'll use to "insert" our module. 
-We can insert a new module on an html by using it as an html. 
+Selectors are very similar to *CSS* selectors, but you can only  use tags, attributes or class elements. 
 
 For example:
 
@@ -93,7 +93,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-//New module in a relative path
+//New module with relative path
 import { ServerComponent } from './server/server.component';
 
 @NgModule({
@@ -126,70 +126,23 @@ This is the main configuration file and it defines defaults for:
 
 
 ## Add a new component
-it can be done manually but you can also use the CLI
 
-{% highlight shell %}
-ng generate component <my-new-component>
+The command *ng generate component <component-name>* will generate a new component template for you.
+
+{% highlight powershell%}
+PS C:\Users\Pablo\Documents\GitHub\training\my-first-app> ng generate component testa
+CREATE src/app/testa/testa.component.html (20 bytes)
+CREATE src/app/testa/testa.component.spec.ts (619 bytes)
+CREATE src/app/testa/testa.component.ts (271 bytes)
+CREATE src/app/testa/testa.component.css (0 bytes)
+UPDATE src/app/app.module.ts (643 bytes)
 {% endhighlight %}
 
-This will generate the required files with a minimum content to start a new component.
 
-### Selector
-The selector is the name that will help us identify and use our component across the application. This is very similar to CCS selectors where we can select elements by tag, attribute or class.
+4 files will be created
+ - *html* for UI
+ - *spec.ts* Unit test
+ - *ts* our typescript code/logic
+ - *css* component styling
 
-**Using a component**
-
- - **as an element tag** This allows us to insert the whole component as an element in the web page.
- 
- {% highlight typescript%}
-import { Component } from "@angular/core";
-
-@Component({
-    selector: 'app-server', // Select as a tag
-    templateUrl: './server.component.html'
-})
-export class ServerComponent {
-
-}
-{% endhighlight %}
- 
- {% highlight html%}
-<app-server></app-server>
-{% endhighlight %}
-
- - **as an element attribute** this allows to use the component inside other tags.
- 
-  {% highlight typescript%}
-import { Component } from "@angular/core";
-
-@Component({
-    selector: '[app-server]', // Select as a attribute
-    templateUrl: './server.component.html'
-})
-export class ServerComponent {
-
-}
-{% endhighlight %}
- 
- {% highlight html%}
-<div app-servers></div>
-
-{% endhighlight %}
-
-- **as an element class** this allows to use the component inside other tags.
- 
-  {% highlight typescript%}
-import { Component } from "@angular/core";
-
-@Component({
-    selector: '.app-server', // Select as a class
-    templateUrl: './server.component.html'
-})
-export class ServerComponent {
-
-}
-{% endhighlight %}
- 
- {% highlight html%}
-<div class="app-servers"></div>
-{% endhighlight %}
+it'll also update app.module.ts for our application to use the component.
