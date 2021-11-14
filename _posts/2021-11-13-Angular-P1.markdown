@@ -135,10 +135,11 @@ ng generate component <my-new-component>
 This will generate the required files with a minimum content to start a new component.
 
 ### Selector
-The selector is the name that will help us identify and use our component across the application.
+The selector is the name that will help us identify and use our component across the application. This is very similar to CCS selectors where we can select elements by tag, attribute or class.
 
 **Using a component**
- - *as a tag* This allows to use the whole component
+
+ - **as an element tag** This allows us to insert the whole component as an element in the web page.
  
  {% highlight typescript%}
 import { Component } from "@angular/core";
@@ -156,13 +157,13 @@ export class ServerComponent {
 <app-server></app-server>
 {% endhighlight %}
 
- - *as an attribute* this allows to use the component inside other tags
+ - **as an element attribute** this allows to use the component inside other tags.
  
   {% highlight typescript%}
 import { Component } from "@angular/core";
 
 @Component({
-    selector: '[app-server]', // Select as a tag
+    selector: '[app-server]', // Select as a attribute
     templateUrl: './server.component.html'
 })
 export class ServerComponent {
@@ -171,5 +172,24 @@ export class ServerComponent {
 {% endhighlight %}
  
  {% highlight html%}
-<app-server></app-server>
+<div app-servers></div>
+
+{% endhighlight %}
+
+- **as an element class** this allows to use the component inside other tags.
+ 
+  {% highlight typescript%}
+import { Component } from "@angular/core";
+
+@Component({
+    selector: '.app-server', // Select as a class
+    templateUrl: './server.component.html'
+})
+export class ServerComponent {
+
+}
+{% endhighlight %}
+ 
+ {% highlight html%}
+<div class="app-servers"></div>
 {% endhighlight %}
