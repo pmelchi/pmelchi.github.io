@@ -42,7 +42,7 @@ By default you can see your changes at: http://localhost:4200/
 
 {% highlight shell %}
 cd my-first-app
-ng server
+ng serve
 {% endhighlight %}
 
 ## Default project structure
