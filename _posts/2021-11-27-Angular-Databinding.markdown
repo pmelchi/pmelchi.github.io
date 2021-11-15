@@ -8,147 +8,90 @@ fig-caption: None
 tags: [development, angular]
 ---
 
-Inside our component, the typescript file (.ts)  contains 3 basic elements that help us with the configuration.
+## Databinding
+it's linking our business logic (typescript) to our Template (html).
 
- - selector
- - template
- - styles
+It can be **outbound**, from the business logic to the template.
+ - *String interpolation:* {{ data }}
+ - *Property binding:* [property] = "data"
+
+or **inbound**, from the template to the business logic
+
+ - *Event binding* (event) = "expression"
+ 
+We can also have **two-way-binding**
+ - [(ngModel)] = "data"
+ 
+
+### String interpolation
+
+From your *typescript*, you can directly map variables or methods that output a string  code to your *template*. 
+The format to present data in the template using data binding is by surounding the *name* with double curly braces *{{myName}}*, this can print any string from the business logic to the UI.
 
 {% highlight typescript%}
-@Component({
-  selector: 'app-testa',
-  templateUrl: './testa.component.html',
-  styleUrls: ['./testa.component.css']
-})
-
-{% endhighlight %}
- 
-
-## Selector
-It usually starts with the word app and it's the name that will help us identify and use our component across the application. This is very similar to CCS selectors where we can select elements by tag, attribute or class.
-
-### As an element tag
-
-This allows us to insert the whole component as an element in the web page.
- 
- {% highlight typescript%}
-import { Component } from "@angular/core";
-
-@Component({
-    selector: 'app-server', // Select as a tag
-    templateUrl: './server.component.html'
-})
 export class ServerComponent {
+    serverName: string = "Ghost";
+    serverStatus: string = "green";
+    serverId: number = 10;
 
+    getServerName() {
+        return this.serverName; 
+    }
 }
 {% endhighlight %}
- 
- {% highlight html%}
-<app-server></app-server>
+
+{% highlight html%}
+    {{'hardcoded String'}} <br>
+    String: {{serverStatus}} <br>
+    Number: {{serverId}} <br>
+    A method: {{getServerName()}} <br>
 {% endhighlight %}
 
-### As an element attribute
+### Property binding
 
-This allows to use the component inside other tags.
- 
-  {% highlight typescript%}
-import { Component } from "@angular/core";
+This syntax is more suitable for scenario where you need to change values of html attributes. The format to use the value is different, you need to use variable name between square brackets.
 
-@Component({
-    selector: '[app-server]', // Select as a attribute
-    templateUrl: './server.component.html'
-})
-export class ServerComponent {
+{% highlight typescript%}
+export class ServersComponent implements OnInit {
 
+  allowNewserver = false;
 }
 {% endhighlight %}
- 
- {% highlight html%}
-<div app-servers></div>
 
+{% highlight html%}
+    <button class="btn btn-primary" [disabled] = "!allowNewserver">Add server</button>
 {% endhighlight %}
 
-### As an element class
 
-This allows to use the component inside other tags.
- 
+## Event binding
+
+Similar to *javascript*, you can also bind object events to your code, these events will execute when an event occours, for example onBlur, OnClick, etc. these are regular events for HTML tags.
+
 {% highlight typescript%}
-import { Component } from "@angular/core";
+export class ServersComponent implements OnInit {
 
-@Component({
-    selector: '.app-server', // Select as a class
-    templateUrl: './server.component.html'
-})
-export class ServerComponent {
+  allowNewserver = false;
+  serverCreationStatus = "Nothing was added";
+  constructor() {
+    setTimeout(() =>  {
+      this.allowNewserver = true;
+    }, 2000);
+   }
 
+  ngOnInit(): void {
+  }
+
+  //My bound method
+  onCreateServer() {
+    this.serverCreationStatus = 'Server was added';
+  }
 }
 {% endhighlight %}
- 
- {% highlight html%}
-<div class="app-servers"></div>
+
+{% highlight html%}
+    <button class="btn btn-primary" 
+	[disabled] = "!allowNewserver"
+	(click)="onCreateServer()">Add server</button>
 {% endhighlight %}
 
-## Template
 
-Template has 2 different ways to use it:
-
-### By pointing to an HTML file
-This is the default when you create a component via CLI.
-
-{% highlight typescript%}
-@Component({
-  selector: 'app-testa',
-  templateUrl: './testa.component.html',//Pointing to html file
-  styleUrls: ['./testa.component.css']
-})
-{% endhighlight %}
-
-### By adding the template to your code
-This is useful in scenarios where it's very snippet, like in a single tag scenario.
-
-{% highlight typescript%}
-@Component({
-  selector: 'app-servers',
-  template: `<app-server></app-server>
-  <app-server></app-server>`,
-  styleUrls: ['./servers.component.css']
-})
-{% endhighlight %}
-
-## Styles
-
-You have 2 main options here too 
- - External file
- - Snippet 
- 
-There're also special selectors, which you can find in the [angular reference page](https://angular.io/guide/component-styles)
- 
-### Pointing to an external file
-
-This is an array and it allows you to add multiple styles.
-
-{% highlight typescript%}
-@Component({
-  selector: 'app-testa',
-  templateUrl: './testa.component.html',
-  styleUrls: ['./testa.component.css', '../main.css']
-})
-{% endhighlight %}
-
-### Adding it as a snippet
-
-We add the CCS directly to our component code, usually in a single string.
-
-{% highlight typescript%}
-@Component({
-  selector: 'app-root',
-  template: `
-    <h1>Tour of Heroes</h1>
-    <app-hero-main [hero]="hero"></app-hero-main>
-  `,
-  styles: ['h1 { font-weight: normal; }']
-})
-export class HeroAppComponent {
-/* . . . */
-}
-{% endhighlight %}
