@@ -32,12 +32,42 @@ Adding a template conditionally with else
 
 Directives that change the appearance or behavior of an element, component, or another directive.
 
-## NgStyle
+#### NgStyle
 
 Adds and removes a set of HTML styles.
 
-
+We are adding  the directive between square brackets *[directive]* because we need to link the behavior to the attribute. 
+This is usually linked to a method.
 
 {% highlight html%}
     <p [ngStyle]="{backgroundClor: getColor()}" > </p>
 {% endhighlight %}
+
+
+In the example above, we are linking the css attribute directly, but we can also set a list of styles and return it as a *record*
+
+{% highlight typescript%}
+    currentStyles: Record<string, string> = {};
+
+	setCurrentStyles() {
+	  // CSS styles: set per current state of component properties
+	  this.currentStyles = {
+		'font-style':  this.canSave      ? 'italic' : 'normal',
+		'font-weight': !this.isUnchanged ? 'bold'   : 'normal',
+		'font-size':   this.isSpecial    ? '24px'   : '12px'
+	  };
+	}
+{% endhighlight %}
+
+
+(More information) [https://angular.io/guide/built-in-directives#ngstyle]
+
+#### NgClass
+Adds and removes a set of CSS classes.
+This is similar to the one above but it changes CSS classes instead. This is usually a conditional expression.
+
+{% highlight html%}
+    <p [ngClass]="{greenSucces: myAttribute === 'success'}" > </p>
+{% endhighlight %}
+
+(More information)[https://angular.io/guide/built-in-directives#ngClass]
