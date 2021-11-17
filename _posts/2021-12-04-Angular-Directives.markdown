@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Angular Databinding
-date: 2021-11-27 08:00:00:00 +0600
-description: Components configuration
+title: Angular directives
+date: 2021-12-04 08:00:00:00 +0600
+description: How to use angular directives
 img: posts/default-post.jpg # Add image post (optional)
 fig-caption: None
-tags: [development, angular, binding]
+tags: [development, angular, directives]
 ---
 
 ## Databinding
@@ -63,7 +63,7 @@ export class ServersComponent implements OnInit {
 {% endhighlight %}
 
 
-### Event binding
+## Event binding
 
 Similar to *javascript*, you can also bind object events to your code, these events will execute when an event occours, for example onBlur, OnClick, etc. these are regular events for HTML tags.
 
@@ -101,7 +101,7 @@ export class ServersComponent implements OnInit {
 {% endhighlight %}
 
 
-### Two way binding
+## Two way binding
 
 Using the FormModule, we can bind the data in our business logic, to template.
 This is a simpler way 
