@@ -9,8 +9,8 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Pablo Melchi # add your name
 author-img: pablo-melchi.jpg # add your photo
-about-author: Solution architect with experience in large systems  # add description
-social-twitter: pmelchi# add your Twitter handle
+about-author: Hi! I'm a software developer with experience as solution architect.  # add description
+social-twitter: pmelchi #add your Twitter handle
 #social-facebook: # add your Facebook handle
 social-github: pmelchi # add your Github handle
 social-linkedin: pablomelchi # add your Linkedin handle
