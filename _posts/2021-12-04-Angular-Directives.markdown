@@ -60,14 +60,26 @@ In the example above, we are linking the css attribute directly, but we can also
 {% endhighlight %}
 
 
-(More information) [https://angular.io/guide/built-in-directives#ngstyle]
+[More information](https://angular.io/guide/built-in-directives#ngstyle)
 
 #### NgClass
 Adds and removes a set of CSS classes.
 This is similar to the one above but it changes CSS classes instead. This is usually a conditional expression.
 
 {% highlight html%}
-    <p [ngClass]="{greenSucces: myAttribute === 'success'}" > </p>
+<p [ngClass]="{greenSucces: isSuccess ? 'green' : 'red'}" > </p>
 {% endhighlight %}
 
-(More information)[https://angular.io/guide/built-in-directives#ngClass]
+[More information](https://angular.io/guide/built-in-directives#ngClass)
+
+
+#### NgFor
+
+Repeat a node for each item in a list.
+
+This will let us loop through the items while printing a new component.
+{% highlight html%}
+<app-server *ngFor="let myItem of myArray"></app-server>
+{% endhighlight %}
+
+[More information](https://angular.io/guide/built-in-directives#ngFor)
