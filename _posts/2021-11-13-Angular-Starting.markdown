@@ -146,3 +146,12 @@ UPDATE src/app/app.module.ts (643 bytes)
  - *css* component styling
 
 it'll also update app.module.ts for our application to use the component.
+
+## Debugging
+
+The output of angular is javascript, however the actual output is not exactly the same as our code. 
+Templates and typescript code will be merged together and we won't be able to easily see it.
+
+But there's a way to see the actual code when you are working on it, and that is the webpack. This is a new section in your javascript debugger that shows the actual code you developer. This only works when the code is deployed in development mode.
+
+![webpack in firefox]({{site.baseurl}}/assets/img/posts/2021-11-13-Debug-angular.jpg)
