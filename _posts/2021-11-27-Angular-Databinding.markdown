@@ -122,3 +122,58 @@ export class ServersComponent implements OnInit {
 
 <p>{{serverName}}</p>
 {% endhighlight %}
+
+## Access between components
+
+When we need to share data between componentes, we need to use the *@input* and *@output* decorator.
+
+[More info](https://angular.io/guide/inputs-outputs)
+
+### @Input
+
+A child component can access the parent data (property)
+
+**Parent component**
+{% highlight typescript%}
+import { Component, Input } from '@angular/core'; // First, import Input
+export class MyChildClass {
+  @Input() item = ''; // decorate the property with @Input()
+}
+{% endhighlight %}
+
+*Note.* You can also add a different name to the attribute if you put a name in the decoratio like this: *@Input('DifferentName')*
+
+
+**Child component**
+{% highlight html%}
+<p>
+  Today's item: {{item}}
+</p>
+{% endhighlight %}
+
+### @Output
+
+Allows to access pass data to a parent component as an event (Think Observer/Observable pattern)
+
+**Child component**
+
+{% highlight typescript%}
+export class ItemOutputComponent {
+
+  //Decorate with @Output
+  @Output() newItemEvent = new EventEmitter<string>();//Type needs to be EventEmitter
+
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
+}
+{% endhighlight %}
+
+**Parent component**
+
+{% highlight html%}
+<label for="item-input">Add an item:</label>
+<input type="text" id="item-input" #newItem>
+<!--onclick event call addNewItem-->
+<button (click)="addNewItem(newItem.value)">Add to parent's list</button>
+{% endhighlight %}

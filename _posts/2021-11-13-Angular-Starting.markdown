@@ -155,3 +155,17 @@ Templates and typescript code will be merged together and we won't be able to ea
 But there's a way to see the actual code when you are working on it, and that is the webpack. This is a new section in your javascript debugger that shows the actual code you developer. This only works when the code is deployed in development mode.
 
 ![webpack in firefox]({{site.baseurl}}/assets/img/posts/2021-11-13-Debug-angular.jpg)
+
+## View encapsulation
+
+This is how angular components get separate styles and they are independent of each other.
+
+To control how this encapsulation happens on a per component basis, set the view encapsulation mode in the component metadata
+
+There are 3 types:
+
+ - ShadowDom view encapsulation uses the browser's built-in shadow DOM implementation.
+ - Emulated view encapsulation (the default) emulates the behavior of shadow DOM by preprocessing (and renaming) the CSS code to effectively scope the CSS to the component's view.
+ - None means that Angular does no view encapsulation. Angular adds the CSS to the global styles. The scoping rules, isolations, and protections discussed earlier don't apply. This mode is essentially the same as pasting the component's styles into the HTML.
+
+[More information](https://angular.io/guide/view-encapsulation)
