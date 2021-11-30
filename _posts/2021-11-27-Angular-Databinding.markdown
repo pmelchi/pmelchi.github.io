@@ -127,7 +127,8 @@ export class ServersComponent implements OnInit {
 
 When we need to share data between componentes, we need to use the *@input* and *@output* decorator.
 
-[More info](https://angular.io/guide/inputs-outputs)
+[Inputs and Outputs](https://angular.io/guide/inputs-outputs)
+[Component interaction] (https://angular.io/guide/component-interaction)
 
 ### @Input
 
@@ -170,10 +171,28 @@ export class ItemOutputComponent {
 {% endhighlight %}
 
 **Parent component**
+The parent component is using a **local reference** that is identified by *#newItem*, this allows to name the input value and use it later within our template.
 
 {% highlight html%}
 <label for="item-input">Add an item:</label>
 <input type="text" id="item-input" #newItem>
 <!--onclick event call addNewItem-->
 <button (click)="addNewItem(newItem.value)">Add to parent's list</button>
+{% endhighlight %}
+
+### @ViewChild
+
+This decorator help us interact with children components from a parent by referencing it in our code.
+
+For example, let's assume we have a component called *CountdownTimerComponent* and we want to access it from its parent component we could do it like this:
+
+{% highlight typescript%}
+@ViewChild(CountdownTimerComponent) //Here we put the name of our component
+private timerComponent!: CountdownTimerComponent;
+
+
+ngAfterViewInit() {
+    //Now we can access it via this property
+    setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
+  }
 {% endhighlight %}

@@ -158,7 +158,7 @@ But there's a way to see the actual code when you are working on it, and that is
 
 ## View encapsulation
 
-This is how angular components get separate styles and they are independent of each other.
+This is how angular components get separate styles and they are independent of each other, and by default it uses an *emulated view encapsulation*.
 
 To control how this encapsulation happens on a per component basis, set the view encapsulation mode in the component metadata
 
@@ -167,5 +167,19 @@ There are 3 types:
  - ShadowDom view encapsulation uses the browser's built-in shadow DOM implementation.
  - Emulated view encapsulation (the default) emulates the behavior of shadow DOM by preprocessing (and renaming) the CSS code to effectively scope the CSS to the component's view.
  - None means that Angular does no view encapsulation. Angular adds the CSS to the global styles. The scoping rules, isolations, and protections discussed earlier don't apply. This mode is essentially the same as pasting the component's styles into the HTML.
+
+This behavior can be changed for each component by using the *encapsulation* option.
+
+{% highlight typescript%}
+@Component({
+  selector: 'app-no-encapsulation',
+  template: `
+    <h2>None</h2>
+    <div class="none-message">No encapsulation</div>
+  `,
+  styles: ['h2, .none-message { color: red; }'],
+  encapsulation: ViewEncapsulation.None,//Select your encapsulation
+})
+{% endhighlight %}
 
 [More information](https://angular.io/guide/view-encapsulation)
