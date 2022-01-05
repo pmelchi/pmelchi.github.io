@@ -183,3 +183,19 @@ This behavior can be changed for each component by using the *encapsulation* opt
 {% endhighlight %}
 
 [More information](https://angular.io/guide/view-encapsulation)
+
+## Component lifecycle
+
+Componentes have hooks (methods) that are called at certain points during the life of a component.
+These are used in some special ocasions or in scenarios where regular events are not enough.
+
+ - **ngOnChanges()** Respond when Angular sets or resets data-bound input properties.
+ - **ngOnInit()** Initialize the directive or component after Angular first displays the data-bound properties and sets the directive or component's input properties
+ - **ngDoCheck()** Detect and act upon changes that Angular can't or won't detect on its own.
+ - **ngAfterContentInit()** Respond after Angular projects external content into the component's view, or into the view that a directive is in.
+ - **ngAfterContentChecked()** Respond after Angular checks the content projected into the directive or component.
+ - **ngAfterViewInit()** Respond after Angular initializes the component's views and child views, or the view that contains the directive
+ - **ngAfterViewChecked()** Respond after Angular checks the component's views and child views, or the view that contains the directive.
+ - **ngOnDestroy()** Cleanup just before Angular destroys the directive or component.
+
+[More information](https://angular.io/guide/lifecycle-hooks)
