@@ -19,5 +19,5 @@ Desde fedora la manera mas facil de crear un disco bootable es utilizando el 'fe
 2. Usar la herramienta de fedora media writter.
 3. Iniciar to maquina con el USB.
 
-(Referencia)[https://www.pendrivelinux.com/make-an-exfat-bootable-usb-flash-drive/]
+(Referencia)[https://stevescargall.com/2019/05/20/how-to-create-a-bootable-windows-usb-in-fedora-linux/]
 
