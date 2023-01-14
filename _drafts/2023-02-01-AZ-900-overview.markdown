@@ -9,6 +9,7 @@ tags: [azure, microsoft, certification]
 ---
 # Azure architecture and services
 
+
 ## Azure Virtual Machines
 You can create and use VMs in the cloud. VMs provide infrastructure as a service (IaaS) in the form of a virtualized server
 
