@@ -1,0 +1,161 @@
+---
+layout: post
+title: Microsoft Certification - AZ 900 - Quick review
+date: 2023-02-01 08:00:00:00 +0600
+description: Quick check for az-900.
+img: posts/default-post.jpg # Add image post (optional)
+fig-caption: Default
+tags: [azure, microsoft, certification]
+---
+# Azure architecture and services
+
+## Azure Virtual Machines
+You can create and use VMs in the cloud. VMs provide infrastructure as a service (IaaS) in the form of a virtualized server
+
+### Virtual machine scale sets
+Virtual machine scale sets let you create and manage a group of identical, load-balanced VMs.
+Scale sets allow you to centrally manage, configure, and update a large number of VMs in minutes. 
+The number of VM instances can automatically increase or decrease in response to demand, or you can set it to scale based on a defined schedule.
+It automatically deploys a load balanacer.
+
+### Virtual machine availability sets
+Availability sets are designed to ensure that VMs stagger updates and have varied power and network connectivity, preventing you from losing all your VMs with a single network or power failure.
+
+ - **Update domain:** The update domain groups VMs that can be rebooted at the same time. 
+ - **Fault domain:** The fault domain groups your VMs by common power source and network switch. 
+
+## Azure Virtual Desktop
+Azure Virtual Desktop is a desktop and application virtualization service that runs on the cloud.
+
+## Azure Containers
+ - Run multiple instances of an application on a single host machine.
+ - Containers are a virtualization environment.
+ 
+## Azure Functions
+Azure Functions is an event-driven, serverless compute option.
+
+## Hosting options
+
+ - VM
+ - Containers
+ - Azure App Service
+	- Web Apps
+	- API apps
+	- WebJobs
+	- Mobile Apps
+
+## Azure virtual networking
+
+### Isolation and segmentation
+
+ - Azure virtual network
+ 
+
+### Internet communications
+ 
+ - Public IP address
+ - Public load balancer
+ 
+### Communicate between Azure resources
+
+ - Virtual networks
+ - Service endpoints
+ 
+### Communicate with on-premises resources
+
+ - **Point-to-site virtual private network** connections are from a computer outside your organization back into your corporate network
+ - **Site-to-site virtual private networks** link your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network.
+ - **Azure ExpressRoute** provides a dedicated private connectivity to Azure that doesn't travel over the internet.
+ 
+### Route network traffic
+ 
+ - **Route tables** allow you to define rules about how traffic should be directed.
+ - **Border Gateway Protocol (BGP)** propagate on-premises BGP routes to Azure virtual networks.
+ 
+### Filter network traffic
+
+Azure virtual networks enable you to filter traffic between subnets.
+
+ - **Network security groups** are Azure resources that can contain multiple inbound and outbound security rules.
+ - **Network virtual appliances**
+
+### Connect virtual networks
+
+You can link virtual networks together by using virtual network peering.
+
+## Azure Virtual Private Networks
+
+A virtual private network (VPN) uses an encrypted tunnel within another network.
+
+### VPN gateways
+
+A VPN gateway is a type of virtual network gateway.
+
+ - Connect on-premises datacenters to virtual networks through a site-to-site connection.
+ - Connect individual devices to virtual networks through a point-to-site connection.
+ - Connect virtual networks to other virtual networks through a network-to-network connection.
+ 
+You can deploy only one VPN gateway in each virtual network. However, you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
+
+ - **Policy-based VPN gateways** specify statically the IP address of packets that should be encrypted through each tunnel
+ - **In Route-based gateways**, IPSec tunnels are modeled as a network interface or virtual tunnel interface
+
+**High-availability scenarios**
+ - Active/standby
+ - Active/active
+ - ExpressRoute failover
+ - Zone-redundant gateways
+ 
+## Azure ExpressRoute
+
+Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider.
+
+
+### ExpressRoute connectivity models
+
+ - CloudExchange colocation
+ - Point-to-point Ethernet connection
+ - Any-to-any connection
+ - Directly from ExpressRoute sites
+ 
+
+## Azure DNS
+Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure.
+
+## Azure storage
+
+### Azure storage accounts
+ - **Locally redundant storage (LRS)**
+ - **Geo-redundant storage (GRS)**
+ - **Read-access geo-redundant storage (RA-GRS)**
+ - **Zone-redundant storage (ZRS)**
+ - **Geo-zone-redundant storage (GZRS)**
+ - **Read-access geo-zone-redundant storage (RA-GZRS)**
+ 
+ TODO expand
+
+### Azure storage services
+ - **Azure Blobs:** A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.
+   - Access tiers:
+     - Hot access tier:
+	 - Cool access tier
+	 - Archive access tier
+ - **Azure Files:** Managed file shares for cloud or on-premises deployments.
+ - **Azure Queues:** A messaging store for reliable messaging between application components.
+ - **Azure Disks:** Block-level storage volumes for Azure VMs.
+ 
+### Azure Data Box
+
+Azure Data Box is a physical migration service that helps transfer large amounts of data in a quick, inexpensive, and reliable way.
+ 
+### Azure file movement options
+
+**AzCopy**
+AzCopy is a command-line utility that you can use to copy blobs or files to or from your storage account. 
+
+**Azure Storage Explorer**
+Azure Storage Explorer is a standalone app that provides a graphical interface to manage files and blobs in your Azure Storage Account.
+
+**Azure File Sync**
+Azure File Sync is a tool that lets you centralize your file shares in Azure Files.
+it will automatically stay bi-directionally synced with your files in Azure.
