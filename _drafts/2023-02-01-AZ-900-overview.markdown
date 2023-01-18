@@ -355,5 +355,51 @@ A budget is where you set a spending limit for Azure. You can set budgets based 
 
 One way to organize related resources is to place them in their own subscriptions. You can also use resource groups to manage related resources. Resource tags are another way to organize resources. Tags provide extra information, or metadata, about your resources. 
 
+### manage resource tags
+
+You can add, modify, or delete resource tags through Windows PowerShell, the Azure CLI, Azure Resource Manager templates, the REST API, or the Azure portal.
+
+You can use Azure Policy to enforce tagging rules and conventions.
+
+Tags aren’t inherited.
+
+## Azure Blueprints
+Azure Blueprints lets you standardize cloud subscription or environment deployments. 
+
+Azure Blueprints you can define repeatable settings and policies that are applied as new subscriptions are created. 
+
+### Artifacts
+Each component in the blueprint definition is known as an artifact.
+
+Artifacts can also contain one or more parameters that you can configure. 
+
+Azure Blueprints are version-able, allowing you to create an initial configuration and then make updates later on and assign a new version to the update. 
+
+With Azure Blueprints, the relationship between the blueprint definition (what should be deployed) and the blueprint assignment (what was deployed) is preserved.
+
+## Azure Policy
+
+Azure Policy is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources.
+
+Azure Policy enables you to define both individual policies and groups of related policies, known as initiatives. Azure Policy evaluates your resources and highlights resources that aren't compliant with the policies you've created. Azure Policy can also prevent noncompliant resources from being created.
+
+Azure Policies can be set at each level, enabling you to set policies on a specific resource, resource group, subscription, and so on. Additionally, Azure Policies are inherited.
+
+## Azure Policy initiative
+
+An Azure Policy initiative is a way of grouping related policies together. The initiative definition contains all of the policy definitions to help track your compliance state for a larger goal.
+
+### Enable Monitoring in Azure Security Center
+
+ - Monitor unencrypted SQL Database in Security Center
+ - Monitor OS vulnerabilities in Security Center
+ - Monitor missing Endpoint Protection in Security Center
+ 
+## Resource locks
+
+A resource lock prevents resources from being accidentally deleted or changed.
+
+
+
 
  
