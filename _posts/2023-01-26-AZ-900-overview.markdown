@@ -1,0 +1,530 @@
+---
+layout: post
+title: Microsoft Certification - AZ 900 - Quick review
+date: 2023-01-26 08:00:00:00 +0600
+description: Quick check for az-900.
+img: posts/default-post.jpg # Add image post (optional)
+fig-caption: Default
+tags: [azure, microsoft, certification]
+---
+# Cloud concepts
+
+## cloud computing
+Cloud computing is the delivery of computing services over the internet. Computing services include common IT infrastructure such as virtual machines, storage, databases, and networking.
+
+## shared responsibility model
+Physical security, power, cooling, and network connectivity are the responsibility of the cloud provider.
+The consumer is responsible for the data and information stored in the cloud. 
+
+With an on-premises datacenter, you’re responsible for everything. 
+
+With cloud computing, those responsibilities shift. The shared responsibility model is heavily tied into the cloud service types (covered later in this learning path): 
+ - infrastructure as a service (IaaS)
+ - platform as a service (PaaS)
+ - software as a service (SaaS).
+
+## cloud models
+
+### Private cloud
+It’s a cloud (delivering IT services over the internet) that’s used by a single entity.
+
+ - Organizations have complete control over resources and security
+ - Data is not collocated with other organizations’ data
+ - Hardware must be purchased for startup and maintenance
+ - Organizations are responsible for hardware maintenance and updates
+
+### Public cloud
+A public cloud is built, controlled, and maintained by a third-party cloud provider. 
+
+ - No capital expenditures to scale up
+ - Applications can be quickly provisioned and deprovisioned
+ - Organizations pay only for what they use
+ - Organizations don’t have complete control over resources and security
+
+### Hybrid cloud
+A hybrid cloud is a computing environment that uses both public and private clouds in an inter-connected environment.
+
+ - Provides the most flexibility
+ - Organizations determine where to run their applications
+ - Organizations control security, compliance, or legal requiremen
+
+### Multi-cloud
+In a multi-cloud scenario, you use multiple public cloud providers. 
+
+
+## Consumption-based model
+
+### Capital expenditure (CapEx)
+CapEx is typically a one-time, up-front expenditure to purchase or secure tangible resources.
+
+### Operational expenditure (OpEx)
+OpEx is spending money on services or products over time. 
+Cloud computing falls under OpEx because cloud computing operates on a consumption-based model.
+
+## Cloud services types
+
+### Infrastructure as a Service
+In an IaaS model, the cloud provider is responsible for maintaining the hardware, network connectivity (to the internet), and physical security. You’re responsible for everything else: operating system installation, configuration, and maintenance; network configuration; database and storage configuration; and so on. 
+
+ - Lift-and-shift migration: 
+ 
+### Platform as a Service
+
+In a PaaS environment, the cloud provider maintains the physical infrastructure, physical security, and connection to the internet. They also maintain the operating systems, middleware, development tools, and business intelligence services that make up a cloud solution.
+
+
+
+# Azure Virtual Machines
+You can create and use VMs in the cloud. VMs provide infrastructure as a service (IaaS) in the form of a virtualized server
+
+## Virtual machine scale sets
+Virtual machine scale sets let you create and manage a group of identical, load-balanced VMs.
+Scale sets allow you to centrally manage, configure, and update a large number of VMs in minutes. 
+The number of VM instances can automatically increase or decrease in response to demand, or you can set it to scale based on a defined schedule.
+It automatically deploys a load balanacer.
+
+## Virtual machine availability sets
+Availability sets are designed to ensure that VMs stagger updates and have varied power and network connectivity, preventing you from losing all your VMs with a single network or power failure.
+
+ - **Update domain:** The update domain groups VMs that can be rebooted at the same time. 
+ - **Fault domain:** The fault domain groups your VMs by common power source and network switch. 
+
+# Azure Virtual Desktop
+Azure Virtual Desktop is a desktop and application virtualization service that runs on the cloud.
+
+# Azure Containers
+ - Run multiple instances of an application on a single host machine.
+ - Containers are a virtualization environment.
+ 
+# Azure Functions
+Azure Functions is an event-driven, serverless compute option.
+
+# Hosting options
+
+ - VM
+ - Containers
+ - Azure App Service
+	- Web Apps
+	- API apps
+	- WebJobs
+	- Mobile Apps
+
+# Azure virtual networking
+
+## Isolation and segmentation
+
+ - Azure virtual network
+ 
+
+## Internet communications
+ 
+ - Public IP address
+ - Public load balancer
+ 
+## Communicate between Azure resources
+
+ - Virtual networks
+ - Service endpoints
+ 
+## Communicate with on-premises resources
+
+ - **Point-to-site virtual private network** connections are from a computer outside your organization back into your corporate network
+ - **Site-to-site virtual private networks** link your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network.
+ - **Azure ExpressRoute** provides a dedicated private connectivity to Azure that doesn't travel over the internet.
+ 
+## Route network traffic
+ 
+ - **Route tables** allow you to define rules about how traffic should be directed.
+ - **Border Gateway Protocol (BGP)** propagate on-premises BGP routes to Azure virtual networks.
+ 
+## Filter network traffic
+
+Azure virtual networks enable you to filter traffic between subnets.
+
+ - **Network security groups** are Azure resources that can contain multiple inbound and outbound security rules.
+ - **Network virtual appliances**
+
+## Connect virtual networks
+
+You can link virtual networks together by using virtual network peering.
+
+# Azure Virtual Private Networks
+
+A virtual private network (VPN) uses an encrypted tunnel within another network.
+
+## VPN gateways
+
+A VPN gateway is a type of virtual network gateway.
+
+ - Connect on-premises datacenters to virtual networks through a site-to-site connection.
+ - Connect individual devices to virtual networks through a point-to-site connection.
+ - Connect virtual networks to other virtual networks through a network-to-network connection.
+ 
+You can deploy only one VPN gateway in each virtual network. However, you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters.
+
+ - **Policy-based VPN gateways** specify statically the IP address of packets that should be encrypted through each tunnel
+ - **In Route-based gateways**, IPSec tunnels are modeled as a network interface or virtual tunnel interface
+
+
+### High-availability scenarios
+ - Active/standby
+ - Active/active
+ - ExpressRoute failover
+ - Zone-redundant gateways
+ 
+# Azure ExpressRoute
+
+Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection, with the help of a connectivity provider.
+
+
+## ExpressRoute connectivity models
+
+ - CloudExchange colocation
+ - Point-to-point Ethernet connection
+ - Any-to-any connection
+ - Directly from ExpressRoute sites
+ 
+
+# Azure DNS
+Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure.
+
+# Azure storage
+
+## Azure storage accounts
+ - **Locally redundant storage (LRS)**
+ - **Geo-redundant storage (GRS)**
+ - **Read-access geo-redundant storage (RA-GRS)**
+ - **Zone-redundant storage (ZRS)**
+ - **Geo-zone-redundant storage (GZRS)**
+ - **Read-access geo-zone-redundant storage (RA-GZRS)**
+ 
+ TODO expand
+
+## Azure storage services
+ - **Azure Blobs:** A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.
+   - Access tiers:
+     - Hot access tier:
+	 - Cool access tier
+	 - Archive access tier
+ - **Azure Files:** Managed file shares for cloud or on-premises deployments.
+ - **Azure Queues:** A messaging store for reliable messaging between application components.
+ - **Azure Disks:** Block-level storage volumes for Azure VMs.
+ 
+## Azure Data Box
+
+Azure Data Box is a physical migration service that helps transfer large amounts of data in a quick, inexpensive, and reliable way.
+ 
+## Azure file movement options
+
+**AzCopy**
+AzCopy is a command-line utility that you can use to copy blobs or files to or from your storage account. 
+
+**Azure Storage Explorer**
+Azure Storage Explorer is a standalone app that provides a graphical interface to manage files and blobs in your Azure Storage Account.
+
+**Azure File Sync**
+Azure File Sync is a tool that lets you centralize your file shares in Azure Files.
+it will automatically stay bi-directionally synced with your files in Azure.
+
+# Azure identity, access, and security 
+
+## Azure authentication methods
+
+ - standard passwords
+ - single sign-on (SSO)
+ - multifactor authentication (MFA)
+ - passwordless.
+ 
+## single sign-on
+Single sign-on (SSO) enables a user to sign in one time and use that credential to access multiple resources and applications from different providers.
+
+## Multifactor Authentication
+
+Multifactor authentication is the process of prompting a user for an extra form (or factor) of identification during the sign-in process. 
+
+## passwordless authentication
+
+ - Windows Hello for Business
+ - Microsoft Authenticator app
+ -
+ FIDO2 security keys
+
+## Azure external identities
+
+Azure AD External Identities refers to all the ways you can securely interact with users outside of your organization.
+The external user’s identity provider manages their identity, and you manage access to your apps with Azure AD or Azure AD B2C to keep your resources protected.
+
+ - Business to business (B2B) collaboration:  Collaborate with external users by letting them use their preferred identity to sign-in to your Microsoft applications or other enterprise applications
+ - B2B direct connect: Establish a mutual, two-way trust with another Azure AD organization for seamless collaboration.
+ - Azure AD business to customer (B2C): Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
+ 
+## Azure conditional access
+
+Conditional Access is a tool that Azure Active Directory uses to allow (or deny) access to resources based on identity signals. 
+These signals include who the user is, where the user is, and what device the user is requesting access from.
+
+
+### When can I use Conditional Access?
+
+ - Require multifactor authentication (MFA) to access an application depending on the requester’s role, location, or network.
+ - Require access to services only through approved client applications.
+ - Require users to access your application only from managed devices. 
+ - Block access from untrusted sources, such as access from unknown or unexpected locations.
+
+## Azure role-based access control
+
+Azure enables you to control access through Azure role-based access control (Azure RBAC).
+Azure provides built-in roles that describe common access rules for cloud resources.
+
+### How is role-based access control applied to resources?
+Role-based access control is applied to a scope, which is a resource or set of resources that this access applies to.
+
+Scopes include:
+
+ - A management group (a collection of multiple subscriptions).
+ - A single subscription.
+ - A resource group.
+ - A single resource.
+
+Azure RBAC is hierarchical, in that when you grant access at a parent scope, those permissions are inherited by all child scopes. 
+
+### How is Azure RBAC enforced?
+
+Azure RBAC is enforced on any action that's initiated against an Azure resource that passes through Azure Resource Manager. 
+
+RBAC doesn't enforce access permissions at the application or data level. Application security must be handled by your application.
+
+## Zero trust model
+
+Zero Trust is a security model that assumes the worst case scenario and protects resources with that expectation.
+
+  - **Verify explicitly** - Always authenticate and authorize based on all available data points.
+  - **Use least privilege access** - Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.
+  - **Assume breach** - Minimize blast radius and segment access. Verify end-to-end encryption. Use analytics to get visibility, drive threat detection, and improve defenses.
+
+it requires everyone to authenticate. Then grants access based on authentication rather than location.
+
+## Defense-in-depth
+
+The objective of defense-in-depth is to protect information and prevent it from being stolen by those who aren't authorized to access it.
+
+### Physical security
+Physically securing access to buildings and controlling access to computing hardware within the datacenter are the first line of defense.
+
+### Identity and access
+ - Control access to infrastructure and change control.
+ - Use single sign-on (SSO) and multifactor authentication.
+ - Audit events and changes.
+
+### Perimeter
+ - Use DDoS protection to filter large-scale attacks before they can affect the availability of a system for users.
+ - Use perimeter firewalls to identify and alert on malicious attacks against your network.
+
+### Network
+ - Limit communication between resources.
+ - Deny by default.
+ - Restrict inbound internet access and limit outbound access where appropriate.
+ - Implement secure connectivity to on-premises networks.
+
+### Compute
+ - Secure access to virtual machines.
+ - Implement endpoint protection on devices and keep systems patched and current.
+ 
+### Application
+
+ - Ensure that applications are secure and free of vulnerabilities.
+ - Store sensitive application secrets in a secure storage medium.
+ - Make security a design requirement for all application development.
+ 
+### Data
+Those who store and control access to data are responsible for ensuring that it's properly secured. 
+
+## Microsoft Defender for Cloud
+
+Defender for Cloud is a monitoring tool for security posture management and threat protection. It monitors your cloud, on-premises, hybrid, and multicloud environments to provide guidance and notifications aimed at strengthening your security posture.
+
+### Azure-native protections
+
+Helps you detect threats across:
+ - Azure PaaS services 
+ - Azure data services 
+ - Networks 
+
+### Hybrid resources
+extend protection to on-premises machines, deploy Azure Arc and enable Defender for Cloud's enhanced security features.
+
+### Resources running on other clouds
+
+ - Defender for Cloud's CSPM features extend to your AWS resources. 
+ - Microsoft Defender for Containers extends its container threat detection and advanced defenses to your Amazon EKS Linux clusters
+ - Microsoft Defender for Servers brings threat detection and advanced defenses to your Windows and Linux EC2 instances.
+
+### Assess, Secure, and Defend
+ - Continuously assess – Know your security posture. Identify and track vulnerabilities.
+ - Secure – Harden resources and services with Azure Security Benchmark.
+ - Defend – Detect and resolve threats to resources, workloads, and services.
+ 
+
+# Azure management and governance
+
+Azure shifts development costs from the capital expense (CapEx) of building out and maintaining infrastructure and facilities to an operational expense (OpEx) of renting infrastructure as you need it, whether it’s compute, storage, networking, and so on.
+
+### Resource type
+The type of resources, the settings for the resource, and the Azure region will all have an impact on how much a resource costs. 
+
+### Consumption
+Pay-as-you-go has been a consistent theme throughout, and that’s the cloud payment model where you pay for the resources that you use during a billing cycle.
+
+Azure also offers the ability to commit to using a set amount of cloud resources in advance and receiving discounts on those “reserved” resources. 
+
+### Maintenance
+If you are not using it, shut it down!
+
+### Geography
+Azure resources can differ in costs to deploy depending on the region. 
+Network traffic is also impacted based on geography.
+
+### Network Traffic
+Billing zones are a factor in determining the cost of some Azure services.
+
+Bandwidth refers to data moving in and out of Azure datacenter
+
+### Subscription type
+Some Azure subscription types also include usage allowances, which affect costs.
+
+### Azure Marketplace
+Azure Marketplace lets you purchase Azure-based solutions and services from third-party vendors. 
+
+## Pricing and Total Cost of Ownership calculators
+
+### Pricing calculator
+The pricing calculator is designed to give you an estimated cost for provisioning resources in Azure.
+
+### TCO calculator
+The TCO calculator is designed to help you compare the costs for running an on-premises infrastructure compared to an Azure Cloud infrastructure.
+
+### Cost Management
+Cost Management provides the ability to quickly check Azure resource costs, create alerts based on resource spend, and create budgets that can be used to automate management of resources.
+
+Cost analysis is a subset of Cost Management that provides a quick visual for your Azure costs.
+
+### Cost alerts
+ - **Budget alerts**: Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the alert condition of the budget.
+ - **Credit alerts**: Credit alerts notify you when your Azure credit monetary commitments are consumed.
+ - **Department spending quota alerts**: Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. 
+
+## Budgets
+A budget is where you set a spending limit for Azure. You can set budgets based on a subscription, resource group, service type, or other criteria. When you set a budget, you will also set a budget alert.
+
+## Tags
+
+One way to organize related resources is to place them in their own subscriptions. You can also use resource groups to manage related resources. Resource tags are another way to organize resources. Tags provide extra information, or metadata, about your resources. 
+
+### manage resource tags
+
+You can add, modify, or delete resource tags through Windows PowerShell, the Azure CLI, Azure Resource Manager templates, the REST API, or the Azure portal.
+
+You can use Azure Policy to enforce tagging rules and conventions.
+
+Tags aren’t inherited.
+
+## Azure Blueprints
+Azure Blueprints lets you standardize cloud subscription or environment deployments. 
+
+Azure Blueprints you can define repeatable settings and policies that are applied as new subscriptions are created. 
+
+### Artifacts
+Each component in the blueprint definition is known as an artifact.
+
+Artifacts can also contain one or more parameters that you can configure. 
+
+Azure Blueprints are version-able, allowing you to create an initial configuration and then make updates later on and assign a new version to the update. 
+
+With Azure Blueprints, the relationship between the blueprint definition (what should be deployed) and the blueprint assignment (what was deployed) is preserved.
+
+## Azure Policy
+
+Azure Policy is a service in Azure that enables you to create, assign, and manage policies that control or audit your resources.
+
+Azure Policy enables you to define both individual policies and groups of related policies, known as initiatives. Azure Policy evaluates your resources and highlights resources that aren't compliant with the policies you've created. Azure Policy can also prevent noncompliant resources from being created.
+
+Azure Policies can be set at each level, enabling you to set policies on a specific resource, resource group, subscription, and so on. Additionally, Azure Policies are inherited.
+
+## Azure Policy initiative
+
+An Azure Policy initiative is a way of grouping related policies together. The initiative definition contains all of the policy definitions to help track your compliance state for a larger goal.
+
+### Enable Monitoring in Azure Security Center
+
+ - Monitor unencrypted SQL Database in Security Center
+ - Monitor OS vulnerabilities in Security Center
+ - Monitor missing Endpoint Protection in Security Center
+ 
+## Resource locks
+
+A resource lock prevents resources from being accidentally deleted or changed.
+
+## Service Trust portal
+
+The Microsoft Service Trust Portal is a portal that provides access to various content, tools, and other resources about Microsoft security, privacy, and compliance practices.
+
+# Interacting with Azure
+
+## Azure portal
+The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription by using a graphical user interface.
+
+## Azure Cloud Shell
+Azure Cloud Shell is a browser-based shell tool that allows you to create, configure, and manage Azure resources using a shell.
+
+### Azure PowerShell
+Azure PowerShell is a shell with which developers, DevOps, and IT professionals can run commands called command-lets (cmdlets). These commands call the Azure REST API to perform management tasks in Azure.
+
+### Azure CLI
+The Azure CLI is functionally equivalent to Azure PowerShell, with the primary difference being the syntax of commands.
+
+## Azure Arc
+Azure Arc simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
+
+### Azure Resource Manager (ARM)
+Azure Resource Manager (ARM) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. Anytime you do anything with your Azure resources, ARM is involved.
+
+### ARM templates
+By using ARM templates, you can describe the resources you want to use in a declarative JSON format.
+
+ - Declarative syntax
+ - Repeatable results
+ - Orchestration
+ - Modular files
+ - Extensibility
+ 
+
+# Monitoring tools
+
+## Azure Advisor
+Azure Advisor evaluates your Azure resources and makes recommendations to help improve reliability, security, and performance, achieve operational excellence, and reduce costs.
+
+ - Reliability 
+ - Security 
+ - Performance 
+ - Operational Excellence
+ - Cost 
+ 
+## Azure Service Health
+
+Azure Service Health helps you keep track of Azure resource, both your specifically deployed resources and the overall status of Azure.
+
+ - Azure Status: is a broad picture of the status of Azure globally
+ - Service Health: provides a narrower view of Azure services and regions.
+ - Resource Health: is a tailored view of your actual Azure resources.
+
+## Azure Monitor
+Azure Monitor is a platform for collecting data on your resources, analyzing that data, visualizing the information, and even acting on the results. Azure Monitor can monitor Azure resources, your on-premises resources, and even multi-cloud resources like virtual machines hosted with a different cloud provider.
+
+### Azure Log Analytics
+Azure Log Analytics is the tool in the Azure portal where you’ll write and run log queries on the data gathered by Azure Monitor. 
+
+### Azure Monitor Alerts
+Azure Monitor Alerts are an automated way to stay informed when Azure Monitor detects a threshold being crossed
+
+### Application Insights
+Application Insights, an Azure Monitor feature, monitors your web applications. 
