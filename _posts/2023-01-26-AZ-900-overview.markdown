@@ -389,6 +389,8 @@ Billing zones are a factor in determining the cost of some Azure services.
 
 Bandwidth refers to data moving in and out of Azure datacenter
 
+**Billing zone** is used to determining billing based on data transfers.
+
 ### Subscription type
 Some Azure subscription types also include usage allowances, which affect costs.
 
