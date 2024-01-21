@@ -1,15 +1,20 @@
-title: Pablo Melchi 
+title: Pablo Melchi Blog
 description: > # this means to ignore newlines until "baseurl:"
   Technical blog about some challenges and findings that I migh find useful in the future.
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+url: "https://blog.pablomelchi.com/" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter: "https://twitter.com/pmelchi" #if your site has a twitter account, enter it here
 
 # Author Settings
 author: Pablo Melchi # add your name
 author-img: pablo-melchi.jpg # add your photo
-about-author: Hi! I'm a software developer with experience as solution architect.  # add description
+about-author: >
+  Welcome to my blog! I'm Pablo Melchi, a Senior IT Engineer with over twenty years of experience navigating the complex and ever-changing technology landscape. 
+  This blog is my digital repository, a place where I document the unique challenges I've encountered and the innovative solutions I've devised. 
+  It serves as a personal knowledge base, capturing the wealth of experience I've accumulated in my own words – from the unconventional paths I've taken to solve problems, to the essential tidbits of wisdom that have guided my career. 
+  Here, I also store and share those technical nuggets and tools that are indispensable at work but not needed daily. 
+  Whether you’re here to explore similar challenges, to learn, or to find inspiration, I hope my journey and insights offer you value and a new perspective on the intricacies of a career in technology.
 social-twitter: pmelchi #add your Twitter handle
 #social-facebook: # add your Facebook handle
 social-github: pmelchi # add your Github handle
@@ -17,7 +22,7 @@ social-linkedin: pablomelchi # add your Linkedin handle
 #social-email: # add your Email address
 
 # Disqus
-discus-identifier: mr-brown # add your discus identifier
+# discus-identifier: mr-brown # add your discus identifier
 
 # Tracker
 # Google Analytics
