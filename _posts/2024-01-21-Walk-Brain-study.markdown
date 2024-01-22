@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How Walking Can Boost Your Brain Health and Prevent Alzheimer's
+title: I reminder that walking is good for your brain
 date: 2024-01-21 08:00:00:00 +0600
-description: How Walking Can Boost Your Brain Health and Prevent Alzheimer's  # Add post description (optional)
+description: How Walking Can Boost Your Brain Health  # Add post description (optional)
 img: posts/2024-01-21.webp # Add image post (optional)
 fig-caption: Walking # Add figcaption (optional)
 tags: [health, walking, brain]
