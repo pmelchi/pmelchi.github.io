@@ -1,0 +1,33 @@
+---
+layout: post
+title: The Dos and Don’ts of Scanning QR Codes in Cybersecurity Events
+date: 2024-02-14 08:00:00:00 +0600
+description: What You Need to Know Before Scanning QR Codes at Cybersecurity Conferences
+img: posts/2024-02-14.png # Add image post (optional)
+fig-caption: QR code # Add figcaption (optional)
+tags: [cybersecurity, qrcodes]
+---
+
+# Should You Scan That QR Code? How to Avoid Cybersecurity Risks
+
+QR codes are everywhere these days. They are convenient, fast, and easy to use. You can scan them with your smartphone camera to access websites, apps, menus, tickets, and more. But did you know that QR codes can also pose some cybersecurity risks? In this blog post, I'll share some tips on how to scan QR codes safely and smartly.
+
+## What are the risks of QR codes?
+
+QR codes are essentially a visual way of encoding a URL or other information. When you scan a QR code, you are trusting that it will take you to the intended destination. However, not all QR codes are trustworthy. Some of them may be malicious, designed to trick you into visiting a phishing website, downloading malware, or revealing your personal or financial information.
+
+This can happen when you scan a QR code from a stranger, a poster, a flyer, or even a business card. Especially if you go to gatherings where cybersecurity people converge, you might need to scan someone's LinkedIn QR code. It's sometimes intimidating to think that someone might try to scam you or play a trick on you. You would never trust a login page with your credentials if it came out of a QR code, but that's very similar to not trusting a short URL because you never know where you are going to land.
+
+According to the National Cyber Security Centre (NCSC), the real risk of QR codes is not the codes themselves, but the websites they link to¹. The NCSC advises users to be cautious and vigilant when scanning QR codes, and to follow some simple steps to protect themselves.
+
+## How to scan QR codes safely and smartly?
+
+Here are some tips on how to scan QR codes safely and smartly:
+
+- Use a QR scanner app that has security features, such as checking the URL before opening it or blocking malicious websites².
+- Don't scan QR codes that look suspicious, such as those that are damaged, faded, or have no label³.
+- Don't enter your login credentials, bank details, or other sensitive information on a website that you accessed through a QR code. Instead, go to the source, such as looking up the name of your new acquaintance on LinkedIn instead of scanning their QR code⁴.
+- Don't download or install anything from a website that you accessed through a QR code, unless you trust the source and have verified it⁵.
+- Don't share your QR code with anyone you don't know or trust.
+
+QR codes can be useful, but they can also be risky. Be careful and smart when you scan them, and don't let them lead you to trouble.
